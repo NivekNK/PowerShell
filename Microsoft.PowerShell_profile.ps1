@@ -25,3 +25,7 @@ Import-Plugin "Set-Shortcut.ps1"
 if (Test-Path variable:\ChangeAppsFolder) {
     $ENV:SCOOP = "$CurrentUserPath\Apps\Scoop"
 }
+
+& ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$ProfilePath\plugins\oh-my-posh\.poshthemes\nk.omp.json" --print) -join "`n"))
+
+Clear-Host

@@ -1,0 +1,3 @@
+[submodule "plugins/oh-my-posh"]
+	path = plugins/oh-my-posh
+	url = https://github.com/NivekNK/oh-my-posh.git
