@@ -4,6 +4,7 @@ $ChangeAppsFolder = ""
 #endregion
 
 #region VARIABLES: Utility variables, don't delete.
+$ENV:PYTHONIOENCODING = "utf-8"
 $CurrentUserPath = [Environment]::GetFolderPath('UserProfile') 
 $ProfilePath = Split-Path $PROFILE -Parent
 #endregion
@@ -20,7 +21,15 @@ function Import-Plugin {
 }
 #endregion
 
+#region PLUGINS
 Import-Plugin "Set-Shortcut.ps1"
+
+Invoke-Expression "$(thefuck --alias)"
+Invoke-Expression (& {
+    $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
+    (zoxide init --hook $hook powershell | Out-String)
+})
+#endregion
 
 if (Test-Path variable:\ChangeAppsFolder) {
     $ENV:SCOOP = "$CurrentUserPath\Apps\Scoop"
