@@ -1,6 +1,5 @@
 #region DEFINES: Delete if config is not required or needed.
 $TheLinuxWay = ""
-$ChangeAppsFolder = ""
 #endregion
 
 #region VARIABLES: Utility variables, don't delete.
