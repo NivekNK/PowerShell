@@ -1,6 +1,5 @@
 #region DEFINES: Delete if config is not required or needed.
 $TheLinuxWay = ""
-$ChangeAppsFolder = ""
 #endregion
 
 #region VARIABLES: Utility variables, don't delete.
@@ -29,10 +28,6 @@ Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
     (zoxide init --hook $hook powershell | Out-String)
 })
-
-if (Test-Path variable:\ChangeAppsFolder) {
-    $ENV:SCOOP = "$CurrentUserPath\Apps\Scoop"
-}
 
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
