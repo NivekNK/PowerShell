@@ -1,5 +1,6 @@
 #region DEFINES: Delete if config is not required or needed.
 $TheLinuxWay = ""
+$ChangeAppsFolder = ""
 #endregion
 
 #region VARIABLES: Utility variables, don't delete.
@@ -28,17 +29,16 @@ Invoke-Expression (& {
     $hook = if ($PSVersionTable.PSVersion.Major -lt 6) { 'prompt' } else { 'pwd' }
     (zoxide init --hook $hook powershell | Out-String)
 })
-#endregion
 
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
+if (Test-Path variable:\ChangeAppsFolder) {
+    $ENV:SCOOP = "$CurrentUserPath\Apps\Scoop"
+}
+
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+    Import-Module "$ChocolateyProfile"
 }
+#endregion
 
 & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$ProfilePath\plugins\oh-my-posh\.poshthemes\nk.omp.json" --print) -join "`n"))
 
