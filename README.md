@@ -4,7 +4,7 @@
 
 * Install Python (pip).
 
-        winget install Python.Python.3.11
+        winget install Python.Python.3.12
 
 * Install [thefuck](https://github.com/nvbn/thefuck#installation)
 
