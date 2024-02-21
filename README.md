@@ -3,9 +3,19 @@
 ## Requirements:
 
 * Install Python (pip).
-```code
-    winget install Python.Python.3.11
-```
+
+        winget install Python.Python.3.11
+
 * Install [thefuck](https://github.com/nvbn/thefuck#installation)
+
+        pip install thefuck
+
+        pip3 install thefuck --upgrade
+
 * Install [fzf](https://github.com/junegunn/fzf#windows)
-* Install [zoxide](https://github.com/ajeetdsouza/zoxide)
+
+        winget install fzf
+
+* Install [zoxide](https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
+
+        winget install ajeetdsouza.zoxide
