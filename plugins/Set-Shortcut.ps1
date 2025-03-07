@@ -22,6 +22,6 @@ function Set-Shortcut {
     }
 }
 
-if (-not (Get-Alias ln -ErrorAction SilentlyContinue) -and (Test-Path variable:\TheLinuxWay)) {
+if (-not (Get-Alias ln -ErrorAction SilentlyContinue) -and ($TheLinuxWay -eq $true)) {
     New-Alias -Name ln -Value Set-Shortcut
 }
